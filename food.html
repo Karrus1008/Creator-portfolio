@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:#FFFFFF;
+        }
+        .gallery-container {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+        }
+        .gallery-img {
+            width: 100%;
+            display: block;
+        }
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            z-index: 1000; /* Ensure buttons are above all other content */
+            transform: translateY(-50%);
+        }
+        .next {
+            right: 20px; /* Adjust the distance from the right */
+            border-radius: 3px 0 0 3px;
+        }
+        .prev {
+            left: 20px; /* Adjust the distance from the left */
+            border-radius: 3px 3px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <img src="selected photos for image portfolio/1.png" class="gallery-img" id="galleryImage" alt="Photo Gallery">
+        <div class="prev" onclick="prevImage()">&#10094;</div>
+        <div class="next" onclick="nextImage()">&#10095;</div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            "selected photos for image portfolio/fine dinning.jpeg",
+            "selected photos for image portfolio/freeeze.jpg",
+            "selected photos for image portfolio/freeze kiwi 2 .jpg",
+            "selected photos for image portfolio/freeze strawberry.jpg",
+            "selected photos for image portfolio/freeze2.jpg",
+            "selected photos for image portfolio/freeze3.jpg",
+			"selected photos for image portfolio/freezeall images.jpg",
+			"selected photos for image portfolio/jkj-1 (1).jpg",
+			"selected photos for image portfolio/Model 2.1.png",
+			"selected photos for image portfolio/spices-2 (1).jpg",
+			"selected photos for image portfolio/yfyjh-1.jpg",
+			"img/IMG_ 8301 copy.jpg",
+			"img/IMG_8302 copy.jpg",
+			"img/IMG_8303 copy.jpg",
+			"img/IMG_8305 copy.jpg",
+			"img/IMG_8306 copy.jpg",
+			"img/IMG_8307 copy.jpg",
+			"img/IMG_8308 copy.jpg",
+			"img/IMG_8309.jpg",
+			"img/IMG_8304.jpg",
+			"img/IMG_8310.jpg",
+			"img/IMG_8311.jpg",
+			"img/IMG_8312.jpg",
+			"img/IMG_8313.jpg",
+			"img/IMG_8314.jpg",
+			"img/IMG_8315.jpg",
+			"img/IMG_8316.jpg",
+			"img/image00001.jpeg",
+			"img/image00002.jpeg",
+			"img/image00003.jpeg",
+			"img/image00004.jpeg"
+			
+			
+        ];
+        const galleryImage = document.getElementById("galleryImage");
+
+        function showImage(index) {
+            galleryImage.src = images[index];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+    </script>
+</body>
+</html>

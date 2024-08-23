@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:#FFFFFF;
+        }
+        .gallery-container {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+        }
+        .gallery-img {
+            width: 100%;
+            display: block;
+        }
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            z-index: 1000; /* Ensure buttons are above all other content */
+            transform: translateY(-50%);
+        }
+        .next {
+            right: 20px; /* Adjust the distance from the right */
+            border-radius: 3px 0 0 3px;
+        }
+        .prev {
+            left: 20px; /* Adjust the distance from the left */
+            border-radius: 3px 3px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <img src="selected photos for image portfolio/image0002ii2.jpeg" class="gallery-img" id="galleryImage" alt="Photo Gallery">
+        <div class="prev" onclick="prevImage()">&#10094;</div>
+        <div class="next" onclick="nextImage()">&#10095;</div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            "selected photos for image portfolio/image0002ii4.jpeg",
+            "selected photos for image portfolio/image00004.jpeg",
+            "selected photos for image portfolio/image0003ii2.jpeg",
+            "selected photos for image portfolio/image00005.jpeg",
+            "selected photos for image portfolio/image00006.jpeg",
+            "selected photos for image portfolio/image00007.jpeg",
+			"selected photos for image portfolio/image00008.jpeg",
+			"selected photos for image portfolio/image00009.jpeg",
+			"selected photos for image portfolio/image00010.jpeg",
+			"selected photos for image portfolio/image00011.jpeg",
+			"selected photos for image portfolio/image00012.jpeg",
+			"selected photos for image portfolio/image00013.jpeg",
+			"selected photos for image portfolio/image00014.jpeg",
+			"selected photos for image portfolio/image00015.jpeg",
+			"selected photos for image portfolio/image00017.jpeg",
+			"selected photos for image portfolio/image00018.jpeg",
+			"selected photos for image portfolio/image00019.jpeg",
+			"selected photos for image portfolio/image00021.jpeg",
+			"selected photos for image portfolio/image00023.jpeg",
+			"selected photos for image portfolio/image00025.jpeg",
+			"selected photos for image portfolio/image00026.jpeg",
+			"selected photos for image portfolio/image00027.jpeg",
+			"selected photos for image portfolio/image00028.jpeg",
+			"selected photos for image portfolio/image00030.jpeg",
+			"selected photos for image portfolio/image00029.jpeg",
+			"selected photos for image portfolio/image00031.jpeg",
+			"selected photos for image portfolio/image00033.jpeg",
+			"selected photos for image portfolio/image00034.jpeg",
+			"selected photos for image portfolio/image00035.jpeg",
+			"selected photos for image portfolio/image00036.jpeg",
+			"selected photos for image portfolio/image00037.jpeg",
+			"selected photos for image portfolio/image00038.jpeg",
+			"selected photos for image portfolio/image00039.jpeg",
+			"selected photos for image portfolio/image00040.jpeg",
+			"selected photos for image portfolio/image00041.jpeg",
+			"selected photos for image portfolio/image00042.jpeg",
+			"img/image00016.jpeg"
+			
+        ];
+        const galleryImage = document.getElementById("galleryImage");
+
+        function showImage(index) {
+            galleryImage.src = images[index];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+    </script>
+</body>
+</html>
